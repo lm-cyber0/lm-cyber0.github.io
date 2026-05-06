@@ -21,25 +21,12 @@
       <h1 class="section-title">Blog</h1>
     </div>
 
-    <div style="display: flex; flex-direction: column; gap: 1.5rem; margin-top: 2rem;">
-      {{ range .Pages }}
-      <a href="{{ .Permalink }}" style="text-decoration: none;">
-        <div class="cert-card" style="padding: 1.5rem; display: block;">
-          <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--text-dim); margin-bottom: 0.5rem;">
-            {{ .Date.Format "2006-01-02" }}
-            {{ with .Params.tags }}
-              · {{ delimit . " · " }}
-            {{ end }}
-          </div>
-          <h2 style="font-size: 1.1rem; color: var(--text-primary); margin: 0 0 0.5rem 0;">{{ .Title }}</h2>
-          {{ with .Description }}
-          <p style="color: var(--text-secondary); font-size: 0.9rem; margin: 0;">{{ . }}</p>
-          {{ end }}
-        </div>
-      </a>
-      {{ else }}
-      <p style="color: var(--text-dim); font-family: 'JetBrains Mono', monospace;">// no posts yet</p>
-      {{ end }}
+    <div style="margin-top: 2rem;">
+      <p style="font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: var(--text-dim);">// nothing here yet</p>
+      <p style="color: var(--text-secondary); margin-top: 0.5rem;">
+        In the meantime, find my writing on
+        <a href="https://lm0.medium.com/" target="_blank" rel="noopener noreferrer" style="color: var(--accent);">Medium</a>.
+      </p>
     </div>
   </section>
 
