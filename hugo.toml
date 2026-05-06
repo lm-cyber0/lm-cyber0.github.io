@@ -1,0 +1,9 @@
+baseURL = 'https://lm-cyber0.github.io/'
+languageCode = 'en-us'
+title = 'Lev Malinin - Security Engineer'
+
+[params]
+  description = "Security engineer specializing in vulnerability management, cloud security, and Python automation."
+
+[taxonomies]
+  tag = "tags"
