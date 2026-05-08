@@ -36,15 +36,6 @@
       if (panel) panel.classList.add('active');
     }
 
-    skillNodes.forEach(node => {
-      node.addEventListener('click', () => {
-        skillNodes.forEach(n => n.classList.remove('active'));
-        skillPills.forEach(p => p.classList.remove('active'));
-        node.classList.add('active');
-        activateSkill(node.dataset.skill);
-      });
-    });
-
     skillPills.forEach(pill => {
       pill.addEventListener('click', () => {
         skillPills.forEach(p => p.classList.remove('active'));
@@ -274,6 +265,10 @@
             return;
           }
 
+          skillNodes.forEach(n => n.classList.remove('active'));
+          skillPills.forEach(p => p.classList.remove('active'));
+          node.classList.add('active');
+          activateSkill(node.dataset.skill);
           applySubgraph(node);
         });
       });
