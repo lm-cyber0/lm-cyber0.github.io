@@ -3,6 +3,31 @@
     const skillPills = document.querySelectorAll('.skill-pill');
     const skillPanels = document.querySelectorAll('.skill-panel-content');
     const skillEmpty = document.getElementById('skill-empty');
+    const skillSheet = document.getElementById('skill-sheet');
+    const skillSheetBody = document.getElementById('skill-sheet-body');
+    const skillSheetBackdrop = document.getElementById('skill-sheet-backdrop');
+
+    function isMobile() {
+      return window.innerWidth <= 900;
+    }
+
+    function openSheet(skillId) {
+      const panel = document.getElementById(`panel-${skillId}`);
+      if (!panel) return;
+      skillSheetBody.innerHTML = panel.innerHTML;
+      skillSheet.classList.add('open');
+      skillSheetBackdrop.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeSheet() {
+      skillSheet.classList.remove('open');
+      skillSheetBackdrop.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    skillSheetBackdrop.addEventListener('click', closeSheet);
+    skillSheet.querySelector('.skill-sheet-handle').addEventListener('click', closeSheet);
 
     function activateSkill(skillId) {
       skillPanels.forEach(p => p.classList.remove('active'));
@@ -25,7 +50,11 @@
         skillPills.forEach(p => p.classList.remove('active'));
         skillNodes.forEach(n => n.classList.remove('active'));
         pill.classList.add('active');
-        activateSkill(pill.dataset.skill);
+        if (isMobile()) {
+          openSheet(pill.dataset.skill);
+        } else {
+          activateSkill(pill.dataset.skill);
+        }
       });
     });
 
