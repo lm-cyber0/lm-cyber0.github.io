@@ -15,6 +15,7 @@
       const panel = document.getElementById(`panel-${skillId}`);
       if (!panel) return;
       skillSheetBody.innerHTML = panel.innerHTML;
+      skillSheet.dataset.mode = 'skill';
       skillSheet.classList.add('open');
       skillSheetBackdrop.classList.add('open');
       skillSheetBody.scrollTop = 0;
@@ -22,6 +23,13 @@
     }
 
     function closeSheet() {
+      if (skillSheet.dataset.mode === 'project') {
+        treeFiles.forEach(f => f.classList.remove('active'));
+      } else {
+        skillPills.forEach(p => p.classList.remove('active'));
+      }
+      skillSheet.dataset.mode = '';
+      skillSheetBody.innerHTML = '';
       skillSheet.classList.remove('open');
       skillSheetBackdrop.classList.remove('open');
       document.body.style.overflow = '';
@@ -68,13 +76,31 @@
       });
     }
 
+    function openProjectSheet(projectId) {
+      const expandEl = document.getElementById('expand-' + projectId);
+      if (!expandEl) return;
+      const inner = expandEl.querySelector('.tree-expand-inner');
+      if (!inner) return;
+      skillSheetBody.innerHTML = inner.innerHTML;
+      skillSheetBody.querySelectorAll('[class*="-demo"], .whisperlink-pipeline').forEach(d => d.classList.remove('sp-paused'));
+      skillSheet.dataset.mode = 'project';
+      skillSheet.classList.add('open');
+      skillSheetBackdrop.classList.add('open');
+      skillSheetBody.scrollTop = 0;
+      document.body.style.overflow = 'hidden';
+    }
+
     const treeClickHint = document.getElementById('tree-click-hint');
     treeFiles.forEach(file => {
       file.addEventListener('click', () => {
         const pid = file.dataset.project;
         const expandEl = document.getElementById('expand-' + pid);
         if (treeClickHint) treeClickHint.classList.add('hidden');
-        if (expandEl && expandEl.classList.contains('open')) {
+        if (isMobile()) {
+          treeFiles.forEach(f => f.classList.remove('active'));
+          file.classList.add('active');
+          openProjectSheet(pid);
+        } else if (expandEl && expandEl.classList.contains('open')) {
           file.classList.remove('active');
           expandEl.classList.remove('open');
           expandEl.querySelectorAll('[class*="-demo"], .whisperlink-pipeline').forEach(d => d.classList.add('sp-paused'));
