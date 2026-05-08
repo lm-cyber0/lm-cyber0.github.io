@@ -1820,12 +1820,14 @@
       border-radius: 16px 16px 0 0;
       max-height: 70vh;
       transform: translateY(100%);
-      transition: transform 0.3s cubic-bezier(0.32, 0.72, 0, 1);
+      opacity: 0;
+      transition: transform 0.3s cubic-bezier(0.32, 0.72, 0, 1), opacity 0.3s ease;
       flex-direction: column;
       display: none;
     }
     .skill-sheet.open {
       transform: translateY(0);
+      opacity: 1;
     }
     .skill-sheet-handle {
       width: 36px;

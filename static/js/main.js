@@ -25,11 +25,18 @@
     function closeSheet() {
       if (skillSheet.dataset.mode === 'project') {
         treeFiles.forEach(f => f.classList.remove('active'));
+        if (sheetInnerEl && sheetInnerOrigin) {
+          sheetInnerEl.querySelectorAll('[class*="-demo"], .whisperlink-pipeline').forEach(d => d.classList.add('sp-paused'));
+          sheetInnerOrigin.appendChild(sheetInnerEl);
+          sheetInnerEl = null;
+          sheetInnerOrigin = null;
+        }
+        skillSheetBody.innerHTML = '';
       } else {
         skillPills.forEach(p => p.classList.remove('active'));
+        skillSheetBody.innerHTML = '';
       }
       skillSheet.dataset.mode = '';
-      skillSheetBody.innerHTML = '';
       skillSheet.classList.remove('open');
       skillSheetBackdrop.classList.remove('open');
       document.body.style.overflow = '';
@@ -76,13 +83,30 @@
       });
     }
 
+    let sheetInnerEl = null;     // the real DOM node currently moved into the sheet
+    let sheetInnerOrigin = null; // its original parent to return it to on close
+
     function openProjectSheet(projectId) {
       const expandEl = document.getElementById('expand-' + projectId);
       if (!expandEl) return;
       const inner = expandEl.querySelector('.tree-expand-inner');
       if (!inner) return;
-      skillSheetBody.innerHTML = inner.innerHTML;
-      skillSheetBody.querySelectorAll('[class*="-demo"], .whisperlink-pipeline').forEach(d => d.classList.remove('sp-paused'));
+
+      // If something is already in the sheet, return it first
+      if (sheetInnerEl && sheetInnerOrigin) {
+        sheetInnerEl.querySelectorAll('[class*="-demo"], .whisperlink-pipeline').forEach(d => d.classList.add('sp-paused'));
+        sheetInnerOrigin.appendChild(sheetInnerEl);
+      }
+
+      // Move the real element (with live animation refs) into the sheet
+      sheetInnerEl = inner;
+      sheetInnerOrigin = expandEl;
+      skillSheetBody.appendChild(inner);
+      // Stay paused through the sheet open animation, then start fresh
+      const demos = Array.from(inner.querySelectorAll('[class*="-demo"], .whisperlink-pipeline'));
+      demos.forEach(d => d.classList.add('sp-paused'));
+      setTimeout(() => demos.forEach(d => d.classList.remove('sp-paused')), 350);
+
       skillSheet.dataset.mode = 'project';
       skillSheet.classList.add('open');
       skillSheetBackdrop.classList.add('open');
