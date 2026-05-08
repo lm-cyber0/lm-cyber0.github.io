@@ -1806,6 +1806,7 @@
       transition: opacity 0.25s ease;
     }
     .skill-sheet-backdrop.open {
+      display: block;
       opacity: 1;
     }
     .skill-sheet {

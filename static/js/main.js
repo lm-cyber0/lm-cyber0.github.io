@@ -15,8 +15,10 @@
       const panel = document.getElementById(`panel-${skillId}`);
       if (!panel) return;
       skillSheetBody.innerHTML = panel.innerHTML;
+      skillSheetBody.querySelectorAll('.skill-panel-content').forEach(el => el.style.display = 'block');
       skillSheet.classList.add('open');
       skillSheetBackdrop.classList.add('open');
+      skillSheetBody.scrollTop = 0;
       document.body.style.overflow = 'hidden';
     }
 
