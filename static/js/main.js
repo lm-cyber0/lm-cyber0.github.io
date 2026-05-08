@@ -249,8 +249,10 @@
         });
       });
 
-      // Click outside constellation: revert to default node
+      // Click outside constellation: revert to default node (desktop only)
       document.addEventListener('click', (e) => {
+        const constellationVisible = window.getComputedStyle(document.querySelector('.constellation')).display !== 'none';
+        if (!constellationVisible) return;
         if (activeNode && !e.target.closest('.constellation') && !e.target.closest('.skill-pills')) {
           if (defaultNode) {
             skillNodes.forEach(n => n.classList.remove('active'));
