@@ -11,7 +11,7 @@
       <a href="#certs">Certs</a>
       <a href="#tools">Tools</a>
       <a href="#contact">Contact</a>
-      <a href="/blog/">Blog</a>
+      <a href="https://lm0.medium.com/" target="_blank" rel="noopener noreferrer">Blog</a>
     </div>
     <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle navigation" aria-expanded="false">
       <span></span>
@@ -28,7 +28,7 @@
         I build security infrastructure <span class="cycling-phrase" id="hero-cycling-phrase">that keeps audits boring<span class="accent">.</span></span>
        </h1>
       <p class="hero-subtitle">
-        Security engineer specializing in vulnerability management, cloud security, and Python automation. I build detection systems and security infrastructure that teams actually use. Increasingly exploring agentic workflows and LLM tooling for security automation.
+        Security engineer specializing in vulnerability management, cloud security, and Python automation. I build the infrastructure and pipelines that security programs run on, and automate everything that doesn't need a human in the loop.
       </p>
       <div class="hero-stats">
         <div class="stat">
@@ -40,8 +40,8 @@
           <span class="stat-label">Hours Automated Weekly</span>
         </div>
         <div class="stat">
-          <span class="stat-value" data-target="10" data-suffix="+">10+</span>
-          <span class="stat-label">Automation Workflows</span>
+          <span class="stat-value" data-target="3" data-suffix="+">3+</span>
+          <span class="stat-label">Years FedRAMP Continuity</span>
         </div>
         <div class="stat">
           <span class="stat-value" data-target="5" data-suffix="+">5+</span>
@@ -467,13 +467,13 @@
               </div>
             </div>
             <p class="exp-scope">
-              Promoted into Platform Security Engineering after a team restructure. Scope expanded into infrastructure automation, cloud security, and federal compliance delivery — while continuing to drive scanning operations across a large multi-cloud environment.
+              Promoted into Platform Security Engineering after a team restructure. Scope expanded into infrastructure automation, cloud security, and federal compliance delivery, while continuing to drive scanning operations across a large multi-cloud environment.
             </p>
             <div class="exp-highlights">
-              <div class="exp-highlight">Built Python automation (Lambda/Glue, Jenkins) contributing to 40% MTTR reduction — redirected 15+ team hours/week away from manual operations</div>
-              <div class="exp-highlight">Architected Zero Touch perimeter scanning via Qualys API — reduced connector provisioning from days to seconds, fully automated account lifecycle</div>
+              <div class="exp-highlight">Built Python automation (Lambda/Glue, Jenkins) contributing to 40% MTTR reduction, redirecting 15+ team hours/week away from manual operations</div>
+              <div class="exp-highlight">Architected Zero Touch perimeter scanning via Qualys API, reducing connector provisioning from days to seconds and fully automating account lifecycle</div>
               <div class="exp-highlight">Led SOC 1 &amp; SOC 2 audit readiness: rebuilt Qualys access control at scale with API-driven provisioning and established Zero Touch coverage as verifiable audit evidence</div>
-              <div class="exp-highlight">Served as primary operator for a federal vulnerability compliance program — 100% deployment compliance, continuous POAM reporting across an expanding cloud footprint</div>
+              <div class="exp-highlight">Served as primary operator for a federal vulnerability compliance program: 100% deployment compliance, continuous POAM reporting across an expanding cloud footprint</div>
             </div>
             <div class="exp-project-callouts">
               <a href="#project-zero-touch" class="exp-project-callout">
@@ -508,8 +508,8 @@
             </p>
             <div class="exp-highlights">
               <div class="exp-highlight">Drove authenticated scan coverage to a consistent 99.5%+ across distributed multi-cloud infrastructure</div>
-              <div class="exp-highlight">Overhauled data center scanning — replaced bare-metal appliances with virtual scanners, cutting worst-case scan time 65–75%</div>
-              <div class="exp-highlight">Administered enterprise Qualys platform across VMDR, WAS, Container Security, and Policy Compliance — maintaining consistent coverage across multi-cloud and federal environments</div>
+              <div class="exp-highlight">Overhauled data center scanning: replaced bare-metal appliances with virtual scanners, cutting worst-case scan time 65–75%</div>
+              <div class="exp-highlight">Administered enterprise Qualys platform across VMDR, WAS, Container Security, and Policy Compliance, maintaining consistent coverage across multi-cloud and federal environments</div>
             </div>
             <div class="exp-project-callouts">
               <a href="#project-slack-jira" class="exp-project-callout">
@@ -603,12 +603,15 @@
               <div class="tree-body">
                 <div>
                   <h3 class="project-title">Zero Touch Connector Migration <span class="topic topic-automation">Automation</span></h3>
-                  <p class="project-desc">Migrated multi-cloud account connectors to Qualys's Zero Touch scanning feature via Qualys API, eliminating manually configured per-account scan schedules. Built automation to compare existing scan configurations against Zero Touch enablement status and programmatically migrate the delta at scale. New accounts get coverage automatically; decommissioned ones drop off without intervention - reducing provisioning from days to seconds.</p>
+                  <p class="project-desc">Migrated multi-cloud account connectors to Qualys's Zero Touch scanning feature via Qualys API, eliminating manually configured per-account scan schedules. Built comparison automation that diffed existing scan configurations against Zero Touch enablement state and programmatically migrated the delta at scale, retroactively converting all legacy manual scans. New accounts get coverage automatically; decommissioned ones drop off without intervention. Provisioning time: days → seconds.</p>
+                  <p class="project-desc project-desc-related">Related: built a separate audit reporting pipeline using the Qualys and Confluence APIs with pandas to aggregate scan data into structured, auditor-ready reports, giving auditors direct access to the data they needed without pulling in the security team for every request.</p>
                   <div class="project-tags">
                     <span class="project-tag accent">Python</span>
                     <span class="project-tag purple">Qualys API</span>
                     <span class="project-tag cyan">AWS</span>
                     <span class="project-tag accent">Automation</span>
+                    <span class="project-tag blue">Confluence API</span>
+                    <span class="project-tag green">pandas</span>
                   </div>
                 </div>
               </div>
@@ -656,7 +659,7 @@
               <div class="tree-body">
                 <div>
                   <h3 class="project-title">FedRAMP Container Pipeline <span class="topic topic-compliance">Compliance</span></h3>
-                  <p class="project-desc">Designed scalable container scanning architecture supporting POAM requirements across an expanding cloud infrastructure environment footprint. Enriched findings by joining current scan data with historical snapshots from adjacent scan cycles to surface trends across reporting periods. Reduced environment change time from 1–3 hours to ~20 minutes and broadened the pool of engineers who could manage the pipeline independently.</p>
+                  <p class="project-desc">Designed scalable container scanning architecture supporting monthly POAM requirements across a significantly expanding AWS environment footprint. Refactored scripts to replace hardcoded values with parameterized inputs, cutting environment onboarding from 2–3 hours to under 5 minutes and making the pipeline manageable by any engineer on the team, not just the person who built it. Enriched findings by joining current scan data with historical snapshots from adjacent scan cycles, surfacing new, resolved, and persisting vulnerabilities across reporting periods.</p>
                   <div class="project-tags">
                     <span class="project-tag accent">Python</span>
                     <span class="project-tag orange">FedRAMP</span>
@@ -708,7 +711,7 @@
               <div class="tree-body">
                 <div>
                   <h3 class="project-title">Access Lifecycle Automation <span class="topic topic-iam">IAM</span></h3>
-                  <p class="project-desc">Redesigned enterprise Qualys user access control with inactivity disablement, API-centric provisioning, and comprehensive runbooks addressing audit requirements - reducing provisioning interaction time by ~30% for new requests and permission updates.</p>
+                  <p class="project-desc">Redesigned enterprise Qualys user access control across a large stakeholder base, implementing automated 6-month inactivity disablement, removing stale accounts, and rebuilding the provisioning process around API-driven automation with full runbook documentation. Directly addressed audit requirements and reduced provisioning interaction time by ~30% for new requests and permission updates. Designed and documented the complete lifecycle from provisioning to offboarding, creating an auditable trail for every account state transition.</p>
                   <div class="project-tags">
                     <span class="project-tag accent">Python</span>
                     <span class="project-tag purple">IAM</span>
@@ -817,8 +820,8 @@
               </div>
               <div class="tree-body">
                 <div>
-                  <h3 class="project-title">Slack-Jira Automation Pipeline <span class="topic topic-automation">Automation</span></h3>
-                  <p class="project-desc">Built API integration between Jira and Slack to surface instant, richly formatted ticket notifications for the vulnerability management team - reducing context-switching and improving remediation task visibility across workflows.</p>
+                  <h3 class="project-title">Slack-Jira Integration <span class="topic topic-automation">Automation</span></h3>
+                  <p class="project-desc">Built a reusable Jira-Slack API integration used as a building block across multiple automation pipelines, surfacing real-time, richly formatted ticket notifications wherever remediation workflows needed visibility. Rather than a one-off tool, it was designed as a composable piece: drop it into a pipeline and ticket state flows into Slack automatically, reducing context-switching across the team.</p>
                   <div class="project-tags">
                     <span class="project-tag accent">Python</span>
                     <span class="project-tag purple">Jira API</span>
@@ -931,7 +934,7 @@
               <div class="tree-body">
                 <div>
                   <h3 class="project-title">WhisperLink <span class="topic topic-ai">AI</span></h3>
-                  <p class="project-desc">Self-hosted AI voice assistant: Raspberry Pi 4 client (audio HAT, dual TFT displays) connected over WebSocket to a GPU server running faster-whisper for STT, Ollama (llama3.1) for LLM inference, and Piper for TTS. Security-hardened with TLS, API key auth, and rate limiting. Architected and directed the full system design and implementation.</p>
+                  <p class="project-desc">Self-hosted AI voice assistant built and architected end-to-end: a Raspberry Pi 4 client (audio HAT, dual TFT displays) connects over WebSocket to a GPU inference server running faster-whisper for STT, Ollama (llama3.1) for LLM inference, and Piper for TTS. All inference runs locally; no data leaves the network. Security-hardened with TLS, API key auth, and rate limiting on the FastAPI backend. A practical exercise in secure system design applied to something genuinely useful.</p>
                   <div class="project-tags">
                     <span class="project-tag accent">FastAPI</span>
                     <span class="project-tag purple">Ollama</span>
@@ -973,7 +976,7 @@
               <div class="tree-body">
                 <div>
                   <h3 class="project-title">FlipperTwo Maker Edition <span class="wip">WIP</span></h3>
-                  <p class="project-desc">DIY cybersecurity multitool, re-building a Flipper Zero from the ground up ($35-65 vs Flipper Zero's $170). ESP32S3 + CC1101 sub-GHz + PN532 NFC + IR. Includes wiring schematics and firmware recommendations.</p>
+                  <p class="project-desc">DIY rebuild of a Flipper Zero from discrete components (ESP32S3 + CC1101 sub-GHz radio + PN532 NFC + IR transceiver) at roughly a quarter of the retail cost ($35–65 vs. $170). Currently in active hardware assembly: wiring components, developing the firmware, and building out the UI and feature set. The goal is a fully functional, documented build guide when complete. A hands-on way to understand the hardware and protocols that underpin physical security tooling.</p>
                   <div class="project-tags">
                     <span class="project-tag accent">ESP32S3</span>
                     <span class="project-tag purple">CC1101 RF</span>
@@ -1014,7 +1017,7 @@
               <div class="tree-body">
                 <div>
                   <h3 class="project-title">Tama Server Monitor <span class="topic topic-embedded">Embedded</span></h3>
-                  <p class="project-desc">ESP32S3 IoT monitor with MQTT pub/sub, synchronous server telemetry, and deep sleep power management - housed in a repurposed Tamagotchi shell. Python hub on Orange Pi.</p>
+                  <p class="project-desc">ESP32S3 IoT monitor housed in a repurposed Tamagotchi shell. Subscribes to a local Mosquitto MQTT broker and displays real-time server telemetry on a 0.96" OLED: server name, status, player count, and TPS. The Python hub runs as a systemd service on an Orange Pi, polling server state and publishing pipe-delimited payloads to keep parsing lightweight on the constrained microcontroller. Deep sleep between updates cuts idle current from ~80mA to ~20µA, waking on GPIO interrupt when a message arrives. Fitting meaningful information into a 0.96" OLED is, it turns out, a legitimate UX challenge. A technical write-up is published on Medium.</p>
                   <div class="project-tags">
                     <span class="project-tag accent">ESP32S3</span>
                     <span class="project-tag purple">Arduino C++</span>
@@ -1084,7 +1087,7 @@
       <div class="featured-post-meta">
         <div class="featured-post-eyebrow">Featured Post · Medium</div>
         <div class="featured-post-title">Technical Report : The Tamagotchi Server Monitor, Under the Hood</div>
-        <div class="featured-post-desc">ESP32S3 + Python + MQTT: A real-time server monitor with systemd service integration, pipe-delimited payload parsing, GPIO interrupt wake patterns, and I2C displays embedded constraints breed resourceful solutions.</div>
+        <div class="featured-post-desc">A breakdown of the embedded engineering behind the Tamagotchi Server Monitor: MQTT pub/sub, deep sleep power management via GPIO interrupt, pipe-delimited payloads for constrained parsing, and the surprisingly non-trivial problem of fitting useful information onto a 0.96" OLED.</div>
         <div class="featured-post-tags">
           <span class="featured-post-tag" style="color:var(--accent);border-color:rgba(0,212,170,0.3);background:var(--accent-glow)">ESP32</span>
           <span class="featured-post-tag" style="color:var(--cyan);border-color:rgba(34,211,238,0.2);background:rgba(34,211,238,0.07)">Embedded</span>

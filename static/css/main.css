@@ -1329,6 +1329,14 @@
       line-height: 1.6;
     }
 
+    .project-desc-related {
+      font-size: 0.82rem;
+      color: var(--text-dim);
+      border-left: 2px solid var(--border-hover);
+      padding-left: 0.75rem;
+      margin-top: -0.25rem;
+    }
+
     .project-tags {
       display: flex;
       flex-wrap: wrap;
