@@ -720,25 +720,6 @@
       margin-bottom: 3rem;
     }
 
-    .tier-label {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.7rem;
-      color: var(--accent);
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      margin-bottom: 1.5rem;
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-
-    .tier-label::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--border);
-    }
-
     .exp-card {
       background: var(--bg-surface);
       border: 1px solid var(--border);
@@ -764,10 +745,6 @@
     .exp-title {
       font-size: 1.25rem;
       font-weight: 600;
-    }
-
-    .exp-company {
-      color: var(--accent);
     }
 
     .exp-meta {
@@ -805,38 +782,6 @@
       flex-direction: column;
       gap: 0.6rem;
       position: relative;
-    }
-
-    .exp-highlight.exp-hidden {
-      display: none;
-    }
-
-    .exp-show-more {
-      display: none;
-      align-items: center;
-      gap: 0.4rem;
-      margin-top: 0.75rem;
-      background: var(--bg-elevated);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      cursor: pointer;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.7rem;
-      color: var(--accent);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      padding: 0.35rem 0.75rem;
-      transition: gap 0.2s, border-color 0.2s;
-    }
-
-    .exp-show-more.visible { display: inline-flex; }
-    .exp-show-more:hover { gap: 0.65rem; border-color: var(--accent); }
-
-    .exp-show-more svg {
-      transition: transform 0.3s ease;
-    }
-    .exp-show-more.open svg {
-      transform: rotate(180deg);
     }
 
     .exp-highlight {
@@ -1583,17 +1528,6 @@
       margin-bottom: 0.5rem;
     }
 
-    .footer-availability {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.75rem;
-      color: var(--text-dim);
-      margin-top: 1rem;
-    }
-
-    .footer-availability span {
-      color: var(--accent);
-    }
-
     .footer-links-col {
       display: flex;
       flex-direction: column;
@@ -1757,22 +1691,6 @@
     .footer-copy-btn.copied .icon-copy { display: none; }
     .footer-copy-btn.copied .icon-check { display: block; }
 
-    /* ── Availability pulse dot ── */
-    .availability-dot {
-      display: inline-block;
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--green);
-      margin-right: 0.45rem;
-      vertical-align: middle;
-      animation: pulse-availability 2.4s ease-in-out infinite;
-    }
-    @keyframes pulse-availability {
-      0%, 100% { box-shadow: 0 0 0 0 rgba(52,211,153,0.5); }
-      50%       { box-shadow: 0 0 0 5px rgba(52,211,153,0); }
-    }
-
     /* ── Section last-updated stamp ── */
     .section-updated {
       font-family: 'JetBrains Mono', monospace;
@@ -1781,11 +1699,6 @@
       margin-top: 0.4rem;
     }
 
-    @media (max-width: 700px) {
-      .origin-grid {
-        grid-template-columns: 1fr;
-      }
-    }
 
     @media (max-width: 600px) {
       .hero-scroll-cue { display: none !important; }
@@ -1826,10 +1739,6 @@
       .hero-stats {
         grid-template-columns: repeat(2, 1fr);
         gap: 1.25rem;
-      }
-
-      .origin-grid {
-        grid-template-columns: 1fr;
       }
 
       .skill-pills {
