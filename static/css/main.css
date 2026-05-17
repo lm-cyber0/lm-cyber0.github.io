@@ -977,6 +977,10 @@
       flex-direction: column;
       gap: 0;
       font-family: 'JetBrains Mono', monospace;
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1rem 1rem;
     }
 
     /* Folder group (work / personal) */
