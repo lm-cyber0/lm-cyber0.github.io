@@ -899,45 +899,51 @@
     }
 
     .exp-provenance {
-      display: flex;
-      flex-direction: column;
-      gap: 0.6rem;
-      padding: 1rem 1.25rem;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      background: var(--bg-surface);
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
     }
 
     .exp-provenance-item {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1rem 1.25rem;
       display: flex;
-      align-items: baseline;
-      flex-wrap: wrap;
-      gap: 0.25rem 0.45rem;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.72rem;
-      color: var(--text-dim);
-      line-height: 1.6;
+      flex-direction: column;
+      gap: 0.3rem;
+      transition: border-color 0.2s;
+    }
+
+    .exp-provenance-item:hover {
+      border-color: var(--border-hover);
     }
 
     .exp-provenance-role {
-      color: var(--text-secondary);
-      font-weight: 500;
-    }
-
-    .exp-provenance-sep {
-      color: var(--border-hover);
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-primary);
     }
 
     .exp-provenance-org {
-      color: var(--text-secondary);
+      font-size: 0.82rem;
+      color: var(--accent);
     }
 
     .exp-provenance-year {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
       color: var(--text-dim);
     }
 
     .exp-provenance-detail {
-      color: var(--text-dim);
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      margin-top: 0.2rem;
+    }
+
+    .exp-provenance-sep {
+      display: none;
     }
 
     /* Project callout link inside an exp-card */
@@ -1759,6 +1765,10 @@
       }
 
       .exp-highlights {
+        grid-template-columns: 1fr;
+      }
+
+      .exp-provenance {
         grid-template-columns: 1fr;
       }
 
